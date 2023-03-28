@@ -1,0 +1,62 @@
+.login-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('hotel-search.jpg');
+    background-size: cover;
+    background-position: center;
+    /*opacity: 1;*/
+    z-index: -1;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-h1 {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    height: 17vh;
+    /*text-align: center;*/
+    color: darkblue;
+    background: aliceblue;
+    animation: bounce;
+    animation-duration: 5s;
+    border-radius: 5px;
+    opacity: 0.8;
+
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.login-form input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.login-form button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: lightsteelblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: darkblue;
+}
