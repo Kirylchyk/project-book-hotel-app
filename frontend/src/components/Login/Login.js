@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import './Login.css';
 import 'animate.css';
+import {Link} from "react-router-dom";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        //API sending request
         try {
             const response = await fetch('http://localhost:5000/api/users/login', {
                 method: 'POST',
@@ -19,9 +22,11 @@ const Login = () => {
 
             const data = await response.json();
 
+            //API handle responses
             if (response.ok) {
                 // Handle successful login
                 console.log('Login successful:', data);
+                onLogin();
             } else {
                 // Handle unsuccessful login
                 console.error('Login failed:', data);
@@ -35,6 +40,7 @@ const Login = () => {
 
     return (
         <div className="login-background">
+            <a className="Link" href="/">Go back to Home Page</a>
             <div className="login-container">
                 <h1 className='login-h1'>Login</h1>
                 <form className="login-form" onSubmit={handleSubmit}>

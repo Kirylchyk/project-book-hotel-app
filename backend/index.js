@@ -2,13 +2,21 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const router = require('./routers/users');
+const cards = require('./routers/cards');
 
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 
-// Replace the connection string with your own MongoDB connection string
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+app.use(cards);
+
+// My MongoDB connection string
 const mongoDBConnectionString = 'mongodb+srv://Kirylchyk:rita12@cluster0.j4dfwce.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(mongoDBConnectionString, {
@@ -17,9 +25,21 @@ mongoose.connect(mongoDBConnectionString, {
 });
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+db.on('connected', () => {
+    console.log('Successfully connected to MongoDB');
+});
+
+db.on('error', (error) => {
+    console.error('Error connecting to MongoDB:', error);
+});
+
+db.on('disconnected', () => {
+    console.log('Disconnected from MongoDB');
+});
 
 app.use('/api/users', router);
+
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
 });
