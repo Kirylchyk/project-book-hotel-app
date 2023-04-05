@@ -40,7 +40,7 @@ const Login = ({ onLogin }) => {
 
     return (
         <div className="login-background">
-            <a className="Link" href="/">Go back to Home Page</a>
+            <a className="Link" href="/">Go to Home Page</a>
             <div className="login-container">
                 <h1 className='login-h1'>Login</h1>
                 <form className="login-form" onSubmit={handleSubmit}>
