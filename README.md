@@ -27,7 +27,7 @@ Card Detailed Page includes:
 
 ![img_1.png](img_1.png)
 
-##Login Page
+## Login Page
 The screen displays a login form with fields to input email and password. 
 If a user inserts correct credentials, he or she will be successfully logged in.  
 There is validation on each field.
