@@ -60,5 +60,19 @@ h1 {
 .filters {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.filter-min,
+.filter-max {
+    width: 120px;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-min:focus,
+.filter-max:focus {
+    border-color: #007bff;
+    outline: none;
 }

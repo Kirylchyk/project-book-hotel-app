@@ -7,6 +7,9 @@ const NonLoggedInScreen = () => {
     const [filteredCards, setFilteredCards] = useState([]);
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
+    const [minSize, setMinSize] = useState('');
+    const [maxSize, setMaxSize] = useState('');
+    const [type, setType] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,82 +25,141 @@ const NonLoggedInScreen = () => {
         fetchData();
     }, []);
 
-    const handleFilter = () => {
-        setFilteredCards(
-            cards.filter(
-                (card) =>
-                    (minPrice === '' || card.price >= minPrice) &&
-                    (maxPrice === '' || card.price <= maxPrice)
-            )
-        );
+    const handleFilter = (filterType, value) => {
+        if (filterType === 'minPrice') setMinPrice(value);
+        if (filterType === 'maxPrice') setMaxPrice(value);
+        if (filterType === 'minSize') setMinSize(value);
+        if (filterType === 'maxSize') setMaxSize(value);
     };
 
-    const openCardWindow = (card) => {
-        const newWindow = window.open('', '_blank');
-        newWindow.document.write(`
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-        }
-        h1 {
-          font-size: 28px;
-          margin-bottom: 10px;
-        }
-        img {
-          max-width: 100%;
-          height: auto;
-          border-radius: 5px;
-        }
-        p {
-          font-size: 18px;
-          margin-bottom: 10px;
-        }
-      </style>
-      <h1>${card.name}</h1>
-      <img src="${card.imageUrl}" alt="${card.name}" />
-      <p>Price: $${card.price}</p>
-      <p>Description: ${card.description}</p>
-      <p>Size: ${card.size} sq. ft.</p>
-      <p>Address: ${card.address}</p>
-    `);
+    const applyFilters = () => {
+        const filtered = cards.filter(card => {
+            const priceInRange =
+                (!minPrice || card.price >= minPrice) &&
+                (!maxPrice || card.price <= maxPrice);
+            const sizeInRange =
+                (!minSize || card.size >= minSize) &&
+                (!maxSize || card.size <= maxSize);
+            const typeMatches = !type || card.type === type;
+            return priceInRange && sizeInRange && typeMatches;
+        });
+
+        setFilteredCards(filtered);
     };
+
+    // const openCardWindow = (cardId) => {
+    //     const newWindow = window.open(`/card/${cardId}`, "_blank");
+    //     newWindow.focus();
+    // };
+
+    // const openCardWindow = (card) => {
+    //     const newWindow = window.open('', '_blank');
+    //     newWindow.document.write(`
+    //   <style>
+    //     body {
+    //       font-family: Arial, sans-serif;
+    //     }
+    //     h1 {
+    //       font-size: 28px;
+    //       margin-bottom: 10px;
+    //     }
+    //     img {
+    //       max-width: 100%;
+    //       height: auto;
+    //       border-radius: 5px;
+    //     }
+    //     p {
+    //       font-size: 18px;
+    //       margin-bottom: 10px;
+    //     }
+    //   </style>
+    //   <h1>${card.name}</h1>
+    //   <img src="${card.imageUrl}" alt="${card.name}" />
+    //   <p>Price: $${card.price}</p>
+    //   <p>Description: ${card.description}</p>
+    //   <p>Size: ${card.size} sq. ft.</p>
+    //   <p>Address: ${card.address}</p>
+    //   <p>Type: ${card.type}</p>
+    //   <button>Register to write a message to the owner</button>
+    // `);
+    // };
 
     return (
         <div>
-            <h1>Welcome to the Home Page, NonLoggedIn User!</h1>
+            <h1>Welcome to Home Page, NonLoggedIn User!</h1>
             <Link className="Link" to="/login">Login Here</Link>
+
             <div className="filters">
                 <label>
                     Min Price: $
                     <input
+                        className="filter-min"
                         type="number"
                         value={minPrice}
-                        onChange={(e) => setMinPrice(e.target.value)}
+                        onChange={(e) => handleFilter('minPrice', e.target.value)}
                     />
                 </label>
                 <label>
                     Max Price: $
                     <input
+                        className="filter-max"
                         type="number"
                         value={maxPrice}
-                        onChange={(e) => setMaxPrice(e.target.value)}
+                        onChange={(e) => handleFilter('maxPrice', e.target.value)}
                     />
                 </label>
-                <button onClick={handleFilter}>Filter</button>
+                <label>
+                    Min Size:
+                    <input
+                        className="filter-min"
+                        type="number"
+                        value={minSize}
+                        onChange={(e) => handleFilter('minSize', e.target.value)}
+                    />
+                </label>
+                <label>
+                    Max Size:
+                    <input
+                        className="filter-max"
+                        type="number"
+                        value={maxSize}
+                        onChange={(e) => handleFilter('maxSize', e.target.value)}
+                    />
+                </label>
+
+                <label>
+                    Type:
+                    <select
+                        className="filter-max"
+                        value={type}
+                        onChange={(e) => setType(e.target.value)}
+                    >
+                        <option value="">All</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Room">Room</option>
+                        <option value="Hotel">Hotel</option>
+                    </select>
+                </label>
+
+                <button onClick={applyFilters}>Filter</button>
             </div>
             <div className="cards-grid">
                 {filteredCards.map((card) => (
-                    <div className="card-container" key={card._id} onClick={() => openCardWindow(card)}>
-                        <img src={card.imageUrl} alt={card.name} />
-                        <h3>{card.name}</h3>
-                        <p>Description: {card.description}</p>
-                    </div>
-                ))}
+                    <Link to={`/card/${card._id}`} key={card._id}>
+                        <div className="card-container">
+                            <img src={card.imageUrl} alt={card.name} />
+                            <h3>{card.name}</h3>
+                            <p>Description: {card.description}</p>
+                            <p>Price: {card.price}</p>
+                        </div>
+                    </Link>
+            ))}
             </div>
         </div>
     );
 };
 
 export default NonLoggedInScreen;
+
 
 

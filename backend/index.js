@@ -14,7 +14,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(cards);
+
+// Update this line to handle both routes with the same router
+app.use('/api/cards', cards);
 
 // My MongoDB connection string
 const mongoDBConnectionString = 'mongodb+srv://Kirylchyk:rita12@cluster0.j4dfwce.mongodb.net/?retryWrites=true&w=majority';
