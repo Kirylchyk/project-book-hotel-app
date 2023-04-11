@@ -1,11 +1,12 @@
-# Project: Website to Book Accommodation
+# Project: 
+# Website to Book Accommodation
 
 # Tools:
 - Frontend: React.js
 - Backend: Node.js
 - Database: MongoDB
 
-# Screens
+# Screens:
 
 ## Main Page
 Displays the list of available accommodation. Each listed property has pic and short description. 
@@ -32,4 +33,4 @@ The screen displays a login form with fields to input email and password.
 If a user inserts correct credentials, he or she will be successfully logged in.  
 There is validation on each field.
 
-![img_1.png](img_1.png)
+![img_2.png](img_2.png)
