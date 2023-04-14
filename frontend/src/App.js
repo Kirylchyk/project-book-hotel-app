@@ -8,6 +8,11 @@ import CardDetails from "./components/CardDetails/CardDetails";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userEmail, setUserEmail] = useState('');
+
+    const handleLogout = () => {
+        setIsAuthenticated(false);
+    };
 
     return (
         <Router>
@@ -20,14 +25,21 @@ function App() {
                         isAuthenticated ? (
                             <Navigate to="/logged-in" />
                         ) : (
-                            <Login onLogin={() => setIsAuthenticated(true)} />
+                            <Login onLogin={(email) => {
+                                setIsAuthenticated(true);
+                                setUserEmail(email);
+                            }} />
                         )
                     }
                 />
                 <Route
                     path="/logged-in"
                     element={
-                        isAuthenticated ? <LoggedInScreen /> : <Navigate to="/login" />
+                        isAuthenticated ? (
+                            <LoggedInScreen userEmail={userEmail} onLogout={handleLogout}/>
+                        ) : (
+                            <Navigate to="/login" />
+                        )
                     }
                 />
                 <Route path="/card/:id"

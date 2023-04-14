@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './CardDetails.css';
 
 const CardDetails = () => {
@@ -25,18 +27,28 @@ const CardDetails = () => {
         return <div>Loading...</div>;
     }
 
-    return (
+    const images = [card.imageUrl];
+    if (card.imageUrl2) {
+        images.push(card.imageUrl2);
+    }
 
+    return (
         <div className="card-details">
             <a className="Link" href="/">Go to Home Page</a>
             <h1>{card.name}</h1>
-            <img src={card.imageUrl} alt={card.name} />
+            <Carousel>
+                {images.map((image, index) => (
+                    <div key={index}>
+                        <img src={image} alt={`${card.name} - ${index}`} />
+                    </div>
+                ))}
+            </Carousel>
             <p>Price: ${card.price}</p>
             <p>Description: {card.description}</p>
             <p>Size: {card.size} sq. ft.</p>
             <p>Address: {card.address}</p>
             <p>Type: {card.type}</p>
-            <button>Register to write a message to the owner</button>
+            <button>Click to write a message to the owner</button>
         </div>
     );
 };

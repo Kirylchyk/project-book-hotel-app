@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
 import 'animate.css';
-import {Link} from "react-router-dom";
 
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
@@ -26,7 +25,7 @@ const Login = ({ onLogin }) => {
             if (response.ok) {
                 // Handle successful login
                 console.log('Login successful:', data);
-                onLogin();
+                onLogin(email);
             } else {
                 // Handle unsuccessful login
                 console.error('Login failed:', data);
