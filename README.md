@@ -39,6 +39,12 @@ There is validation on each field.
 
 ![img_2.png](img_2.png)
 
+## Registration Page
+Allow a user input email and password. Once saved, the corresponding record 
+can be applied to log in to the site.
+
+![img_1.png](img_1.png)
+
 ## Screen for Logged Users
 In addition, if a user is logged, he or she will also see Logout button.
 **My Account** section (separate component) should be visible to logged users only. 

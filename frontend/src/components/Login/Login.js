@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Login.css';
 import 'animate.css';
 
@@ -42,6 +43,7 @@ const Login = ({ onLogin }) => {
             <a className="Link" href="/">Go to Home Page</a>
             <div className="login-container">
                 <h1 className='login-h1'>Login</h1>
+
                 <form className="login-form" onSubmit={handleSubmit}>
                     <input
                         type="email"
@@ -56,6 +58,7 @@ const Login = ({ onLogin }) => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type="submit">Let me in!</button>
+                    <Link to="/registration">Create an account</Link>
                 </form>
             </div>
         </div>

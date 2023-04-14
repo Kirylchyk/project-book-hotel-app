@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const router = require('./routers/users');
 const cards = require('./routers/cards');
+const registration = require('./routers/registration');
 
 const app = express();
 
@@ -15,7 +16,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Update this line to handle both routes with the same router
 app.use('/api/cards', cards);
 
 // My MongoDB connection string
@@ -45,3 +45,5 @@ app.use('/api/users', router);
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
 });
+
+app.use('/api/users/registration', registration);

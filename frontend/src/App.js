@@ -5,6 +5,8 @@ import Login from './components/Login/Login';
 import LoggedInScreen from './components/LoggedInScreen/LoggedInScreen';
 import NonLoggedInScreen from './components/NonLoggedInScreen/NonLoggedInScreen';
 import CardDetails from "./components/CardDetails/CardDetails";
+import Registration from './components/Registration/Registration';
+
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -44,7 +46,11 @@ function App() {
                 />
                 <Route path="/card/:id"
                        element={<CardDetails />} />
+
+                <Route path="/registration" element={<Registration />} />
+
             </Routes>
+
         </Router>
     );
 }
