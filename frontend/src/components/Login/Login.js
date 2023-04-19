@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import 'animate.css';
@@ -6,6 +6,25 @@ import 'animate.css';
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        async function handleAuthorization() {
+            const path = window.location.pathname;
+            if (path.includes('/authorization/')) {
+                const userId = path.split('/authorization/')[1];
+                try {
+                    const response = await fetch(`http://localhost:5000/authorization/${userId}`);
+                    const data = await response.json();
+                    if (data.message === 'User authorized successfully') {
+                        onLogin(data.user.email);
+                    }
+                } catch (error) {
+                    console.error('Error handling authorization:', error);
+                }
+            }
+        }
+        handleAuthorization();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

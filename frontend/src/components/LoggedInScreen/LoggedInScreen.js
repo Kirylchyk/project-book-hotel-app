@@ -26,6 +26,11 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
         fetchData();
     }, []);
 
+    // Another useEffect hook
+    useEffect(() => {
+        localStorage.setItem('isLoggedIn', true);
+    }, []);
+
     const handleFilter = (filterType, value) => {
         if (filterType === 'minPrice') setMinPrice(value);
         if (filterType === 'maxPrice') setMaxPrice(value);
@@ -34,6 +39,13 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
     };
 
     const applyFilters = () => {
+        // Ensure filter values are not less than 0
+        if (minPrice < 0 || maxPrice < 0 || minSize < 0 || maxSize < 0) {
+            console.error('Filter values cannot be less than 0');
+            alert('Filter values cannot be less than 0');
+            return;
+        }
+
         const filtered = cards.filter(card => {
             const priceInRange =
                 (!minPrice || card.price >= minPrice) &&

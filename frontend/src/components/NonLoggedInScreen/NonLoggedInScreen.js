@@ -33,6 +33,13 @@ const NonLoggedInScreen = () => {
     };
 
     const applyFilters = () => {
+        // Ensure filter values are not less than 0
+        if (minPrice < 0 || maxPrice < 0 || minSize < 0 || maxSize < 0) {
+            console.error('Filter values cannot be less than 0');
+            alert('Filter values cannot be less than 0');
+            return;
+        }
+
         const filtered = cards.filter(card => {
             const priceInRange =
                 (!minPrice || card.price >= minPrice) &&

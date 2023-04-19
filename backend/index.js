@@ -4,6 +4,7 @@ const cors = require('cors');
 const router = require('./routers/users');
 const cards = require('./routers/cards');
 const registration = require('./routers/registration');
+const authorization = require('./routers/authorization');
 
 const app = express();
 
@@ -47,3 +48,5 @@ app.listen(5000, () => {
 });
 
 app.use('/api/users/registration', registration);
+
+app.use('/api/authorization', authorization);

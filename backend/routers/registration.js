@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
         } else {
             const newUser = new User({ email, password });
             await newUser.save();
-            res.status(201).json({ message: 'User created', email });
+            res.status(201).json({ message: 'User created', email, _id: newUser._id });
         }
     } catch (error) {
         res.status(500).json({ message: 'Internal server error', error });
