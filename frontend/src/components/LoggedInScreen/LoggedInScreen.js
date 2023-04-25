@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './LoggedInScreen.css';
+import styles from './LoggedInScreen.module.css';
 import MyAccount from '../MyAccount/MyAccount';
 
 const LoggedInScreen = ({ userEmail, onLogout }) => {
@@ -68,13 +68,13 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
 
             <MyAccount email={userEmail} />
 
-            <button className="Link" onClick={onLogout}>Log out</button>
+            <button className={styles.Link} onClick={onLogout}>Log out</button>
 
-            <div className="filters">
+            <div className={styles.filters}>
                 <label>
                     Min Price: $
                     <input
-                        className="filter-min"
+                        className={styles.filterMin}
                         type="number"
                         value={minPrice}
                         onChange={(e) => handleFilter('minPrice', e.target.value)}
@@ -83,7 +83,7 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
                 <label>
                     Max Price: $
                     <input
-                        className="filter-max"
+                        className={styles.filterMax}
                         type="number"
                         value={maxPrice}
                         onChange={(e) => handleFilter('maxPrice', e.target.value)}
@@ -92,7 +92,7 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
                 <label>
                     Min Size:
                     <input
-                        className="filter-min"
+                        className={styles.filterMin}
                         type="number"
                         value={minSize}
                         onChange={(e) => handleFilter('minSize', e.target.value)}
@@ -101,7 +101,7 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
                 <label>
                     Max Size:
                     <input
-                        className="filter-max"
+                        className={styles.filterMax}
                         type="number"
                         value={maxSize}
                         onChange={(e) => handleFilter('maxSize', e.target.value)}
@@ -111,7 +111,7 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
                 <label>
                     Type:
                     <select
-                        className="filter-max"
+                        className={styles.filterMax}
                         value={type}
                         onChange={(e) => setType(e.target.value)}
                     >
@@ -124,10 +124,10 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
 
                 <button onClick={applyFilters}>Filter</button>
             </div>
-            <div className="cards-grid">
+            <div className={styles.cardsGrid}>
                 {filteredCards.map((card) => (
 
-                        <div className="card-container" key={card._id}>
+                        <div className={styles.cardContainer} key={card._id}>
                             <Link to={`/card/${card._id}`} key={card._id}>
                             <img src={card.imageUrl} alt={card.name} />
                             </Link>

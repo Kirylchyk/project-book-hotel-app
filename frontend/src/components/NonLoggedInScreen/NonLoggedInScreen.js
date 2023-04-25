@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './NonLoggedInScreen.css';
+import styles from './NonLoggedInScreen.module.css';
 
 const NonLoggedInScreen = () => {
     const [cards, setCards] = useState([]);
@@ -94,13 +94,13 @@ const NonLoggedInScreen = () => {
     return (
         <div>
             <h1>Welcome to Home Page, NonLoggedIn User!</h1>
-            <Link className="Link" to="/login">Login Here</Link>
+            <Link className={styles.Link} to="/login">Login Here</Link>
 
-            <div className="filters">
+            <div className={styles.filters}>
                 <label>
                     Min Price: $
                     <input
-                        className="filter-min"
+                        className={styles.filterMin}
                         type="number"
                         value={minPrice}
                         onChange={(e) => handleFilter('minPrice', e.target.value)}
@@ -109,7 +109,7 @@ const NonLoggedInScreen = () => {
                 <label>
                     Max Price: $
                     <input
-                        className="filter-max"
+                        className={styles.filterMax}
                         type="number"
                         value={maxPrice}
                         onChange={(e) => handleFilter('maxPrice', e.target.value)}
@@ -118,7 +118,7 @@ const NonLoggedInScreen = () => {
                 <label>
                     Min Size:
                     <input
-                        className="filter-min"
+                        className={styles.filterMin}
                         type="number"
                         value={minSize}
                         onChange={(e) => handleFilter('minSize', e.target.value)}
@@ -127,7 +127,7 @@ const NonLoggedInScreen = () => {
                 <label>
                     Max Size:
                     <input
-                        className="filter-max"
+                        className={styles.filterMax}
                         type="number"
                         value={maxSize}
                         onChange={(e) => handleFilter('maxSize', e.target.value)}
@@ -137,7 +137,7 @@ const NonLoggedInScreen = () => {
                 <label>
                     Type:
                     <select
-                        className="filter-max"
+                        className={styles.filterMax}
                         value={type}
                         onChange={(e) => setType(e.target.value)}
                     >
@@ -150,10 +150,10 @@ const NonLoggedInScreen = () => {
 
                 <button onClick={applyFilters}>Filter</button>
             </div>
-            <div className="cards-grid">
+            <div className={styles.cardsGrid}>
                 {filteredCards.map((card) => (
                     <Link to={`/card/${card._id}`} key={card._id}>
-                        <div className="card-container">
+                        <div className={styles.cardContainer}>
                             <img src={card.imageUrl} alt={card.name} />
                             <h3>{card.name}</h3>
                             <p>Description: {card.description}</p>

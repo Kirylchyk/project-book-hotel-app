@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Login.css';
+import styles from './Login.module.css';
 import 'animate.css';
 
 const Login = ({ onLogin }) => {
@@ -58,12 +58,12 @@ const Login = ({ onLogin }) => {
 
 
     return (
-        <div className="login-background">
-            <a className="Link" href="/">Go to Home Page</a>
-            <div className="login-container">
-                <h1 className='login-h1'>Login</h1>
+        <div className={styles.loginBackground}>
+            <a className={styles.Link} href="/">Go to Home Page</a>
+            <div className={styles.loginContainer}>
+                <h1 className={styles.loginH1}>Login</h1>
 
-                <form className="login-form" onSubmit={handleSubmit}>
+                <form className={styles.loginForm} onSubmit={handleSubmit}>
                     <input
                         type="email"
                         placeholder="Email"

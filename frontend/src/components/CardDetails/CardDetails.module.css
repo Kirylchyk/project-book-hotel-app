@@ -1,4 +1,4 @@
-.card-details {
+.cardDetails {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,7 @@
     border-radius: 4px;
 }
 
-.card-details h1 {
+.cardDetails h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }

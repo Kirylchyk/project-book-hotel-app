@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import Login from './components/Login/Login';
@@ -12,6 +12,13 @@ import AuthorizationHandler from './components/AuthorizationHandler/Authorizatio
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userEmail, setUserEmail] = useState('');
+
+    const handleLogin = useCallback((email) => {
+        setIsAuthenticated(true);
+        setUserEmail(email);
+        localStorage.setItem('isLoggedIn', true.toString());
+        localStorage.setItem('userEmail', email);
+    }, []);
 
     useEffect(() => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -38,12 +45,7 @@ function App() {
                         isAuthenticated ? (
                             <Navigate to="/logged-in" />
                         ) : (
-                            <Login onLogin={(email) => {
-                                setIsAuthenticated(true);
-                                setUserEmail(email);
-                                localStorage.setItem('isLoggedIn', true);
-                                localStorage.setItem('userEmail', email);
-                            }} />
+                            <Login onLogin={handleLogin} />
                         )
                     }
                 />
@@ -65,7 +67,7 @@ function App() {
                 <Route path="/authorization/:id" element={<AuthorizationHandler onLogin={(email) => {
                     setIsAuthenticated(true);
                     setUserEmail(email);
-                    localStorage.setItem('isLoggedIn', true);
+                    localStorage.setItem('isLoggedIn', true.toString());
                     localStorage.setItem('userEmail', email);
                 }} />} />
 

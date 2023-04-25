@@ -1,4 +1,4 @@
-.my-account {
+.myAccount {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -19,25 +19,25 @@
     transition: all 0.3s ease-in-out;
 }
 
-.my-account:hover {
+.myAccount:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     transform: translateY(-5px);
 }
 
-.my-account::before {
+.myAccount::before {
     content: '\1F464'; /* Display a person emoji */
     margin-right: 10px;
     font-size: 1.5em;
     color: #4b9aee;
 }
 
-.my-account h2 {
+.myAccount h2 {
     margin: 0;
     margin-bottom: 10px;
     color: #4b9aee;
 }
 
-.my-account p {
+.myAccount p {
     margin: 0;
     color: #555;
 }

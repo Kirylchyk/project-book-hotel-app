@@ -1,9 +1,9 @@
 import React from 'react';
-import './MyAccount.css';
+import styles from './MyAccount.module.css';
 
 const MyAccount = ({ email }) => {
     return (
-        <div className="my-account">
+        <div className={styles.myAccount}>
             <h2> My Account </h2>
             <p> Email: </p>
             <p> {email} </p>

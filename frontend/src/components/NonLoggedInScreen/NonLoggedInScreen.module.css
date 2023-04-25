@@ -1,4 +1,4 @@
-h1 {
+h1{
     font-family: 'Arial', sans-serif;
     font-size: 2.5rem;
     text-align: center;
@@ -6,13 +6,13 @@ h1 {
 }
 
 
-.info-cards {
+.infoCards {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
 }
 
-.cards-grid {
+.cardsGrid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -26,7 +26,7 @@ h1 {
     width: calc(33% - 10px);
 }
 
-.card-container {
+.cardContainer {
     border: 3px solid #f1c40f;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -63,16 +63,16 @@ h1 {
     margin-bottom: 10px;
 }
 
-.filter-min,
-.filter-max {
+.filterMin,
+.filterMax {
     width: 120px;
     padding: 8px;
     border: 2px solid #ccc;
     border-radius: 4px;
 }
 
-.filter-min:focus,
-.filter-max:focus {
+.filterMin:focus,
+.filterMax:focus {
     border-color: #007bff;
     outline: none;
 }

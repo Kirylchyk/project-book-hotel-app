@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import './CardDetails.css';
+import styles from './CardDetails.module.css';
 
 const CardDetails = () => {
     const [card, setCard] = useState(null);
@@ -33,8 +33,8 @@ const CardDetails = () => {
     }
 
     return (
-        <div className="card-details">
-            <a className="Link" href="/">Go to Home Page</a>
+        <div className={styles.cardDetails}>
+            <a className={styles.Link} href="/">Go to Home Page</a>
             <h1>{card.name}</h1>
             <Carousel>
                 {images.map((image, index) => (

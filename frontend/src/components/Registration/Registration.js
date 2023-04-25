@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Registration.css';
+import { Link } from 'react-router-dom';
+import styles from './Registration.module.css';
 
 const Registration = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [userId, setUserId] = useState(null);
-    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -41,8 +40,8 @@ const Registration = () => {
 
     const Modal = () => {
         return (
-            <div className="modal">
-                <div className="modal-content">
+            <div className={styles.modal}>
+                <div className={styles.modalContent}>
                     <h3>Authorization Link</h3>
                     <p>
                         Please click on the following link to complete the
@@ -59,8 +58,8 @@ const Registration = () => {
 
 
     return (
-        <div className="registration-container">
-            <Link className="Link" to="/">Go to Home Page</Link>
+        <div className={styles.registrationContainer}>
+            <Link className={styles.Link} to="/">Go to Home Page</Link>
 
             <h1>Register</h1>
             <form onSubmit={handleSubmit}>

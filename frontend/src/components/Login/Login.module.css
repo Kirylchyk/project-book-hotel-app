@@ -1,4 +1,4 @@
-.login-background {
+.loginBackground {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,14 +11,14 @@
     z-index: -1;
 }
 
-.login-container {
+.loginContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.login-h1 {
+.loginH1 {
     display: flex;
     /*justify-content: center;*/
     align-items: center;
@@ -33,7 +33,7 @@
 
 }
 
-.login-form {
+.loginForm {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -43,12 +43,12 @@
     border-radius: 5px;
 }
 
-.login-form input {
+.loginForm input {
     padding: 10px;
     font-size: 16px;
 }
 
-.login-form button {
+.loginForm button {
     padding: 10px;
     font-size: 16px;
     background-color: lightsteelblue;
@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-.login-form button:hover {
+.loginForm button:hover {
     background-color: darkblue;
 }
 
