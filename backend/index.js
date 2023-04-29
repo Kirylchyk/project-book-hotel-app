@@ -5,6 +5,7 @@ const router = require('./routers/users');
 const cards = require('./routers/cards');
 const registration = require('./routers/registration');
 const authorization = require('./routers/authorization');
+const user = require('./routers/user');
 
 const app = express();
 
@@ -43,10 +44,14 @@ db.on('disconnected', () => {
 
 app.use('/api/users', router);
 
-app.listen(5000, () => {
-    console.log('Server is running on port 5000');
-});
-
 app.use('/api/users/registration', registration);
 
 app.use('/api/authorization', authorization);
+
+app.use('/api/users', user);
+
+
+//should after setting up routes
+app.listen(5000, () => {
+    console.log('Server is running on port 5000');
+});

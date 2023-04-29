@@ -60,13 +60,11 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
         setFilteredCards(filtered);
     };
 
-    console.log(userEmail)
-
     return (
         <div>
             <h1>You are logged in!</h1>
 
-            <MyAccount email={userEmail} />
+            <MyAccount/>
 
             <button className={styles.Link} onClick={onLogout}>Log out</button>
 
@@ -127,7 +125,7 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
             <div className={styles.cardsGrid}>
                 {filteredCards.map((card) => (
 
-                        <div className={styles.cardContainer} key={card._id}>
+                        <div className={styles.cardContainer}                    key={card._id}>
                             <Link to={`/card/${card._id}`} key={card._id}>
                             <img src={card.imageUrl} alt={card.name} />
                             </Link>

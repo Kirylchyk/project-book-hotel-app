@@ -45,6 +45,7 @@ const Login = ({ onLogin }) => {
             if (response.ok) {
                 // Handle successful login
                 console.log('Login successful:', data);
+                localStorage.setItem('userId', data.user._id); // Save the user ID to local storage
                 onLogin(email);
             } else {
                 // Handle unsuccessful login
@@ -55,7 +56,6 @@ const Login = ({ onLogin }) => {
             console.error('Network error:', error);
         }
     };
-
 
     return (
         <div className={styles.loginBackground}>

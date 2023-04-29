@@ -4,7 +4,7 @@ const User = require('../models/User'); // Import User model schema
 
 router.post('/', async (req, res) => {
     // Handle the registration logic here
-    const { email, password } = req.body;
+    const { email, password, name, phone } = req.body;
 
     try {
         const existingUser = await User.findOne({ email });
@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
         if (existingUser) {
             res.status(409).json({ message: 'User already exists' });
         } else {
-            const newUser = new User({ email, password });
+            const newUser = new User({ email, password, name, phone });
             await newUser.save();
             res.status(201).json({ message: 'User created', email, _id: newUser._id });
         }

@@ -5,6 +5,8 @@ import styles from './Registration.module.css';
 const Registration = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [userId, setUserId] = useState(null);
 
@@ -17,7 +19,7 @@ const Registration = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, password, name, phone }),
             });
 
             const data = await response.json();
@@ -65,15 +67,27 @@ const Registration = () => {
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                />
+                <input
+                    type="name"
+                    placeholder="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                    type="phone"
+                    placeholder="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                 />
                 <button type="submit">Register</button>
             </form>
