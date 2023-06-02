@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Login.module.css';
 import 'animate.css';
+import RecoverPassword from "../RecoverPassword/RecoverPassword";
 
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
@@ -61,9 +62,12 @@ const Login = ({ onLogin }) => {
         <div className={styles.loginBackground}>
             <a className={styles.Link} href="/">Go to Home Page</a>
             <div className={styles.loginContainer}>
-                <h1 className={styles.loginH1}>Login</h1>
 
-                <form className={styles.loginForm} onSubmit={handleSubmit}>
+                <div className={styles.formsContainer}>
+                    <form className={styles.loginForm} onSubmit={handleSubmit}>
+                        <div className={styles.loginHeaderContainer}>
+                            <h1 className={styles.loginH1}>Login</h1>
+                        </div>
                     <input
                         type="email"
                         placeholder="Email"
@@ -78,7 +82,12 @@ const Login = ({ onLogin }) => {
                     />
                     <button type="submit">Let me in!</button>
                     <Link to="/registration">Create an account</Link>
-                </form>
+
+                    </form>
+
+                    <RecoverPassword />
+
+                </div>
             </div>
         </div>
     );

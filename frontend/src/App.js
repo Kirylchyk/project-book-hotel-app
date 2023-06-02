@@ -7,7 +7,8 @@ import NonLoggedInScreen from './components/NonLoggedInScreen/NonLoggedInScreen'
 import CardDetails from "./components/CardDetails/CardDetails";
 import Registration from './components/Registration/Registration';
 import AuthorizationHandler from './components/AuthorizationHandler/AuthorizationHandler';
-
+import RecoverPassword from "./components/RecoverPassword/RecoverPassword";
+import ResetPassword from "./components/PasswordResetForm/ResetPassword";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -70,6 +71,9 @@ function App() {
                     localStorage.setItem('isLoggedIn', true.toString());
                     localStorage.setItem('userEmail', email);
                 }} />} />
+
+                <Route path="/recover-password" component={RecoverPassword} />
+                {/*<Route path="/reset-password" element={<ResetPassword />} />*/}
 
             </Routes>
         </Router>

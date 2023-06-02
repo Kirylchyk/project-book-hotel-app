@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -6,6 +7,7 @@ const cards = require('./routers/cards');
 const registration = require('./routers/registration');
 const authorization = require('./routers/authorization');
 const user = require('./routers/user');
+const passwordRouter = require('./routers/passwordRouter');
 
 const app = express();
 
@@ -50,8 +52,10 @@ app.use('/api/authorization', authorization);
 
 app.use('/api/users', user);
 
+// app.use('/api/users', passwordRouter);
 
-//should after setting up routes
+
+//should be after setting up routes
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
 });
