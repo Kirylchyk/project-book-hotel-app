@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './LoggedInScreen.module.css';
-import MyAccount from '../MyAccount/MyAccount';
+// import MyAccount from '../MyAccount/MyAccount';
 
 const LoggedInScreen = ({ userEmail, onLogout }) => {
     const [cards, setCards] = useState([]);
@@ -60,11 +60,15 @@ const LoggedInScreen = ({ userEmail, onLogout }) => {
         setFilteredCards(filtered);
     };
 
+    const handleAccountClick = () => {
+        window.open('/myaccount', '_blank');
+    };
+
     return (
         <div>
             <h1>You are logged in!</h1>
 
-            <MyAccount/>
+            <button className={styles.Link} onClick={handleAccountClick}>My Account</button>
 
             <button className={styles.Link} onClick={onLogout}>Log out</button>
 

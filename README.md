@@ -55,3 +55,9 @@ In addition, if a user is logged, he or she will also see Logout button.
 **My Account** section (separate component) should be visible to logged users only. 
 
 ![img_3.png](img/img_3.png)
+
+## My Account Page
+The user is able to change the current password with a new one. Once submitted, 
+a new password will overwrite the old password in MongoDB.
+
+![img_5.png](img/img_5.png)

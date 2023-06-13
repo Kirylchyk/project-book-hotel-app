@@ -52,8 +52,7 @@ app.use('/api/authorization', authorization);
 
 app.use('/api/users', user);
 
-// app.use('/api/users', passwordRouter);
-
+app.use('/api/users', passwordRouter);
 
 //should be after setting up routes
 app.listen(5000, () => {

@@ -8,7 +8,8 @@ import CardDetails from "./components/CardDetails/CardDetails";
 import Registration from './components/Registration/Registration';
 import AuthorizationHandler from './components/AuthorizationHandler/AuthorizationHandler';
 import RecoverPassword from "./components/RecoverPassword/RecoverPassword";
-import ResetPassword from "./components/PasswordResetForm/ResetPassword";
+// import ResetPassword from "./components/PasswordResetForm/ResetPassword";
+import MyAccount from "./components/MyAccount/MyAccount";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -72,8 +73,10 @@ function App() {
                     localStorage.setItem('userEmail', email);
                 }} />} />
 
-                <Route path="/recover-password" component={RecoverPassword} />
+                <Route path="/recover-password" element={<RecoverPassword />} />
                 {/*<Route path="/reset-password" element={<ResetPassword />} />*/}
+
+                <Route path="/myaccount" element={<MyAccount />} />
 
             </Routes>
         </Router>

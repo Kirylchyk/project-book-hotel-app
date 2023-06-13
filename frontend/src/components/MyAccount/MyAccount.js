@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './MyAccount.module.css';
+import ChangePasswordLink from "../ChangePasswordLink/ChangePasswordLink";
 
 const MyAccount = () => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -33,12 +36,17 @@ const MyAccount = () => {
         fetchUserData();
     }, []);
 
+    const handlePasswordChangeClick = () => {
+        navigate('/change-password');
+    };
+
     return (
         <div className={styles.myAccount}>
             <h2>My Account</h2>
             <p>Email: {email}</p>
             <p>Name: {name}</p>
             <p>Phone: {phone}</p>
+            <ChangePasswordLink onClick={handlePasswordChangeClick} />
         </div>
     );
 };
