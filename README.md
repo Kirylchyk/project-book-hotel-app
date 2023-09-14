@@ -8,7 +8,9 @@
 
 # Nota Bene:
 
-Dockerfiles are written
+- Dockerfiles are written
+
+- npm start from route file will launch both frontend and backend
 
 
 # Screens:
