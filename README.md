@@ -1,12 +1,12 @@
-# Project: 
+# :bulb: Project: 
 # Accommodation Booking Site
 
-# Tools:
+# :rocket: Tools:
 - **Frontend**: React.js
 - **Backend**: Node.js
 - **Database**: MongoDB
 
-# Nota Bene:
+# :memo: Nota Bene:
 
 - Dockerfiles are written
 
