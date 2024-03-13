@@ -16,8 +16,13 @@
 # Screens:
 
 ## Main Page
-The website displays a list of available accommodations, with each listing featuring a photo and a brief description. Users can apply filters based on price, size, and type to refine their search. 
-Additionally, the login button is only displayed to users who are not currently logged in.
+Upon visiting the website, users are greeted with a curated selection of available accommodations, each entry showcased with a vivid photo and a concise description to quickly convey the essence of each option. This initial presentation is both visually appealing and informative, streamlining the decision-making process for prospective guests.
+
+To enhance user experience, the website features a robust filtering system. Users can refine their search based on key criteria such as price, size, and accommodation type, from luxurious villas to budget-friendly hostels. This customization makes the search more efficient and tailored to individual preferences.
+
+The website also intelligently addresses user login. A login button is prominently displayed for guests who haven't signed in, facilitating easy access to their accounts or encouraging new visitors to create one. This not only streamlines the booking process for returning users but also enriches the experience for new members with features like saved searches and personalized recommendations, fostering a more engaged user community.
+
+In essence, the website marries aesthetic design with functional excellence, offering a user-centric platform that simplifies the accommodation discovery and booking process.
 
 ![img.png](img/img.png)
 
