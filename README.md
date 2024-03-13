@@ -22,8 +22,7 @@ Additionally, the login button is only displayed to users who are not currently 
 ![img.png](img/img.png)
 
 ## Detailed Page
-When clicking on any accommodation card, a page with details will open.
-Card Detailed Page includes:
+Clicking on any accommodation card opens a detailed page for that listing, which includes the following information:
 
 - Name
 - Picture(s)
@@ -34,6 +33,8 @@ Card Detailed Page includes:
 - Type
 
 ![img_4.png](img/img_4.png)
+
+This layout ensures users have all the essential details at their fingertips, facilitating an informed decision-making process.
 
 **Note:** If there are several pictures, the user can use 
 **carousel.**
