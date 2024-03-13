@@ -16,9 +16,8 @@
 # Screens:
 
 ## Main Page
-Displays the list of available accommodation. Each listed property has pic and short description. 
-There are also available **filters**: on price, size, and type. 
-**Login** button is only displayed for non-logged users.
+The website displays a list of available accommodations, with each listing featuring a photo and a brief description. Users can apply filters based on price, size, and type to refine their search. 
+Additionally, the login button is only displayed to users who are not currently logged in.
 
 ![img.png](img/img.png)
 
