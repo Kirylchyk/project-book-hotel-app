@@ -8,25 +8,22 @@
 
 # :memo: Nota Bene:
 
-- Dockerfiles are written
+- Dockerfiles are written 🐳
+- `npm start` from route file will launch both frontend and backend 🌐
 
-- npm start from route file will launch both frontend and backend
 
+# 🖥️ Screens:
 
-# Screens:
+## 🏠 Main Page
+Upon visiting the website, users are greeted with a selection of available accommodations, each entry showcased with a vivid photo and a short description to quickly convey the essence of each option.
 
-## Main Page
-Upon visiting the website, users are greeted with a curated selection of available accommodations, each entry showcased with a vivid photo and a concise description to quickly convey the essence of each option. This initial presentation is both visually appealing and informative, streamlining the decision-making process for prospective guests.
+To enhance user experience, the website features a filtering system. Users can refine their search based on key criteria such as price, size, and accommodation type, from luxurious villas to budget-friendly hostels. This customization makes the search more efficient and tailored to individual preferences.
 
-To enhance user experience, the website features a robust filtering system. Users can refine their search based on key criteria such as price, size, and accommodation type, from luxurious villas to budget-friendly hostels. This customization makes the search more efficient and tailored to individual preferences.
-
-The website also intelligently addresses user login. A login button is prominently displayed for guests who haven't signed in, facilitating easy access to their accounts or encouraging new visitors to create one. This not only streamlines the booking process for returning users but also enriches the experience for new members with features like saved searches and personalized recommendations, fostering a more engaged user community.
-
-In essence, the website marries aesthetic design with functional excellence, offering a user-centric platform that simplifies the accommodation discovery and booking process.
+The website also addresses user login. A login button is prominently displayed for guests who haven't signed in, facilitating easy access to their accounts or encouraging new visitors to create one.
 
 ![img.png](img/img.png)
 
-## Detailed Page
+## 📋 Detailed Page
 Clicking on any accommodation card opens a detailed page for that listing, which includes the following information:
 
 - Name
@@ -39,12 +36,9 @@ Clicking on any accommodation card opens a detailed page for that listing, which
 
 ![img_4.png](img/img_4.png)
 
-This layout ensures users have all the essential details at their fingertips, facilitating an informed decision-making process.
+**Note:** If there are several pictures, the user can use **carousel.**
 
-**Note:** If there are several pictures, the user can use 
-**carousel.**
-
-## Login Page
+## 🔑 Login Page
 
 Upon accessing the platform, users are greeted with a user-friendly login interface, designed to facilitate secure and straightforward access. This interface includes two primary fields: one for the user's email address and another for their password. To proceed, users are required to fill in these fields with their credentials. Successful entry of the correct credentials grants the user access to their account, seamlessly integrating them into the platform's ecosystem.
 
